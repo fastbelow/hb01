@@ -1,0 +1,1 @@
+sui move test --skip-fetch-latest-git-deps

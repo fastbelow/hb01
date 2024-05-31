@@ -1,0 +1,1 @@
+sui client publish --skip-fetch-latest-git-deps --skip-dependency-verification --gas-budget 100000000

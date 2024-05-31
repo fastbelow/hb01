@@ -1,0 +1,30 @@
+.createbutton{
+    margin-left: 20px;
+    margin-right: 30px;
+    margin-top: 40px;
+}
+
+.topDialog{
+    /* overflow-y: auto; 当内容在垂直方向上超出时显示滚动条   */
+    height: 300px;
+    width: 500px;
+}
+
+.dialogTitle{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.llabel{
+    margin-right: 20px;
+    /* border: 2px solid rgb(19, 104, 126); */
+    
+}
+.attackinput{
+    margin-top: 20px;
+}
+.okButton{
+    margin-top: 40px;
+    margin-right: 340px;
+}

@@ -1,0 +1,33 @@
+    fun new_room(){
+        let shareobject:address = @0xabc01;
+        let looker:address = @0xBBBBCC;
+        let looker2:address = @0xBBBBC2;
+        let scenario:sui::test_scenario::Scenario = test_scenario::begin(looker);
+        let nowctx : &mut TxContext = test_scenario::ctx(&mut scenario );
+
+        let nRoom = Room{
+            id:object::new(nowctx),
+            tabRound:table::new(nowctx),
+            usrQueue:vector::empty<u64>(),
+            flag:0,
+        };
+
+        add_queue(&mut nRoom,nowctx);
+
+        test_scenario::end(scenario);
+
+        // test 2
+        let scenario2:sui::test_scenario::Scenario = test_scenario::begin(looker2);
+
+        let nowctx2 : &mut TxContext = test_scenario::ctx(&mut scenario2 );
+
+        add_queue(&mut nRoom,nowctx2);
+
+        test_scenario::end(scenario2);
+
+        std::debug::print(&nRoom.usrQueue);
+     
+        transfer::public_transfer(nRoom,shareobject);
+
+    }
+

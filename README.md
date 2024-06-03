@@ -1,5 +1,5 @@
 
-# 环掌战 1.0  
+# Sui 环掌战 1.0  
 
 * click to [English](#handbattle-10) 
 
@@ -23,11 +23,19 @@ web3 sui move dapp
 # plan 
 增加 官方 随机数
 
+# 快乐路径
+
+对执行的结果进行规避操作
+
+就是办到 胜利和失败的gas费用保持一致
+
+或无法从胜利或失败中找到规律
+<br>
+<br>
+<br>
 
 
-
-
-# handbattle 1.0 
+# Sui HandBattle 1.0 
 * 点此处跳转 [中文版](#环掌战-10)
 
 web3 sui move dapp
@@ -52,3 +60,35 @@ Decentralized online multiplayer without any server infrastructure
 
 # plan
 Incorporate an official on-chain random number generator
+
+
+# testnet Random
+
+sui client call --package 0xed7fa85ae32ef0c9b3005600ac7edec1cf42b54e4b5db9a9d735d2d220dd6368 --module tbase --function showrandom --args 0x8 --gas-budget 100000000
+
+
+```
+    entry fun showrandom(r: &Random, ctx: &mut TxContext){
+        
+        // 2024
+        // let mut generator = new_generator(r, ctx);
+        // let mut v = random::generate_u8_in_range(&mut generator, 1, 100);
+        // 2024 end
+
+        // 2023
+        let generator = new_generator(r, ctx);
+        let v = random::generate_u8_in_range(&mut generator, 1, 100);
+        // 2023 end
+        event::emit(TrndExt{
+            trnd_ext:v
+        });
+    }
+```
+# happy path
+
+Perform avoidance operations on the results of execution
+
+It's about achieving consistent gas costs for both victory and failure
+
+Or unable to find patterns from victory or failure
+
